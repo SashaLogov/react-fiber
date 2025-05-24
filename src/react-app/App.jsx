@@ -40,7 +40,7 @@ export const App = () => (
       <span className="caption" />
       <div />
       <a href="https://l69l.com">
-        <div className="button">SWOREEL</div>
+        <div className="button">REEL</div>
       </a>
       <div className="button gray">///</div>
     </div>
@@ -69,7 +69,7 @@ function Scene(props) {
         intensity={1}
         castShadow
       />
-      <Physics /*debug*/ gravity={[0, 0, 0]}>
+      <Physics /*debug*/ gravity={[-2.5, 0, 0]}>
         <Pointer />
         {
           connectors.map((props, i) => <Connector key={i} {...props} />) /* prettier-ignore */
@@ -136,7 +136,7 @@ function Connector({
   ...props
 }) {
   const api = useRef();
-  const pos = useMemo(() => position || [r(10), r(10), r(10)], []);
+  const pos = useMemo(() => position || [r(100), r(100), r(100)], []);
   useFrame((state, delta) => {
     delta = Math.min(0.1, delta);
     api.current?.applyImpulse(
